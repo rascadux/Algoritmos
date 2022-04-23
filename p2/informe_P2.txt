@@ -1,0 +1,214 @@
+TÍTULO: Práctica 2 de Algoritmos "Ordenacion por seleccion y ordenacion shell"
+AUTOR 1: Luis Brañas Marco        	LOGIN 1: luis.branas
+AUTOR 2: Daniel Rodriguez Sanchez	LOGIN 2: daniel.rodriguez.sanchez1
+AUTOR 3: Jacobo Iglesias Cibiriain      Login 3: jacobo.iglesias1
+
+GRUPO: 3.1
+FECHA: 23/10/2021
+
+---------------------------------------------------------------------------------------------------
+
+1. Características del máquina:
+
+	OS: Ubuntu 20.04.1 LTS
+	Kernel: 5.11.0-34-generic
+	CPU: Intel Core i7 10750H a 5.0 GHz
+	Memoria principal: 32 GB
+	Compilador: gcc version 9.3.0
+
+---------------------------------------------------------------------------------------------------
+
+2. Introducción:
+
+	La practica consiste en comparar dos algoritmos de ordenadcion, de selección y de ordenación shell.
+	Se compararn en diferentes situaciones: ordenar un vector desordenado, ordenado ascendentemente y otro 
+	ordenado descendentemente y con distinto tamaños.
+	
+	Despues de programar los algoritmos correspondientes en c y comprobar su funcionamineto procedemos a 
+	estudiar su complejidad y a valorar su rapidez 
+	
+	Cabe destacar que las mediciónes de los tiempos se van a realizar en microsegundos (µs)
+
+
+---------------------------------------------------------------------------------------------------
+
+3. Datos
+
+Ordenacion por seleccion con inicializacion ASCENDENTE: 
+Ord_sel
+
+           n              t(n)          t(n)/n^1.8       t(n)/n^2      t(n)/n^2.2
+
+(*)       500           209.514         0.002904         0.000838         0.000242
+         1000           834.000         0.003320         0.000834         0.000209
+         2000          3297.000         0.003769         0.000824         0.000180
+         4000         13617.000         0.004471         0.000851         0.000162
+         8000         53255.000         0.005021         0.000832         0.000138
+        16000        215986.000         0.005848         0.000844         0.000122
+        32000        846541.000         0.006582         0.000827         0.000104
+        
+Cota subestimada: n^1.8
+Cota ajustada: n^2 
+Cota sobreestimada: n^2.2
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.000827
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n^2
+------------------------------------------------------------------------------------------------
+Ordenacion por seleccion con inicializacion DESCENDENTE: 
+Ord_sel
+
+           n              t(n)          t(n)/n^1.8       t(n)/n^2      t(n)/n^2.2
+
+(*)       500           225.569         0.003127         0.000902         0.000260
+         1000           957.000         0.003810         0.000957         0.000240
+         2000          3554.000         0.004063         0.000888         0.000194
+         4000         14715.000         0.004831         0.000920         0.000175
+         8000         56831.000         0.005358         0.000888         0.000147
+        16000        224630.000         0.006082         0.000877         0.000127
+        32000        934249.000         0.007264         0.000912         0.000115
+        
+Cota subestimada: n^1.8
+Cota ajustada: n^2 
+Cota sobreestimada: n^2.2
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante algo variable 
+	de a 0.000877 
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n^2
+-----------------------------------------------------------------------------------------------
+Ordenacion por seleccion con inicializacion ALEATORIA: 
+Ord_sel
+
+           n              t(n)          t(n)/n^1.8       t(n)/n^2      t(n)/n^2.2
+
+(*)       500           228.918         0.003173         0.000916         0.000264
+         1000           869.000         0.003460         0.000869         0.000218
+         2000          3464.000         0.003960         0.000866         0.000189
+         4000         13917.000         0.004569         0.000870         0.000166
+         8000         55741.000         0.005255         0.000871         0.000144
+        16000        217563.000         0.005891         0.000850         0.000123
+        32000        851521.000         0.006621         0.000832         0.000104
+
+Cota subestimada: n^1.8
+Cota ajustada: n^2 
+Cota sobreestimada: n^2.2
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.000850
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n^2
+------------------------------------------------------------------------------------------------
+Ordenacion por seleccion con inicializacion ASCENDENTE: 
+Ord_shell
+
+           n              t(n)        t(n)/n^0.7       t(n)/n^1.10      t(n)/n^2.2
+
+(*)       500            10.189      0.131477840      0.010946230      0.000011760
+(*)      1000            23.827      0.189264588      0.011941788      0.000005985
+(*)      2000            53.076      0.259523798      0.012409812      0.000002902
+(*)      4000           117.504      0.353680126      0.012817008      0.000001398
+(*)      8000           255.821      0.473994390      0.013017788      0.000000662
+        16000           614.000      0.700300414      0.014575934      0.000000346
+        32000          1293.000      0.907807027      0.014319688      0.000000159
+        
+Cota subestimada: n^0.7
+Cota ajustada: n^1.10
+Cota sobreestimada: n^2.2
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.014575934
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n^1.10
+------------------------------------------------------------------------------------------------
+Ordenacion por seleccion con inicializacion DESCENDENTE: 
+Ord_shell
+
+           n              t(n)        t(n)/n^0.7       t(n)/n^1.15      t(n)/n^2.2
+
+(*)       500            16.206      0.209120607      0.012760284      0.000018704
+(*)      1000            35.442      0.281525813      0.012575296      0.000008903
+(*)      2000            78.860      0.385598891      0.012608757      0.000004311
+(*)      4000           172.665      0.519711491      0.012440428      0.000002054
+(*)      8000           367.133      0.680237284      0.011919827      0.000000951
+        16000           828.000      0.944379060      0.012114134      0.000000467
+        32000          1778.000      1.248322424      0.011722204      0.000000218
+        
+Cota subestimada: n^0.7
+Cota ajustada: n^1.15
+Cota sobreestimada: n^2.2
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.012114134
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n^1.15
+----------------------------------------------------------------------------------------------
+Ordenacion por seleccion con inicializacion ALEATORIA: 
+Ord_shell
+
+           n              t(n)         t(n)/n       t(n)/n*log(n)^2     t(n)/n^2.2
+
+(*)       500            38.189      0.076378000      0.001977611      0.016151980
+(*)      1000            88.234      0.088234000      0.001849107      0.015690471
+(*)      2000           199.884      0.099942000      0.001729887      0.014944815
+(*)      4000           456.271      0.114067750      0.001658172      0.014343260
+         8000          1188.000      0.148500000      0.001838561      0.015701963
+        16000          2392.000      0.149500000      0.001595363      0.013292639
+        32000          5253.000      0.164156250      0.001525484      0.012273542
+        
+Cota subestimada: n
+Cota ajustada: n*log(n)^2
+Cota sobreestimada: n^2.2
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.001595363
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n*log(n)^2
+
+
+---------------------------------------------------------------------------------------------------
+
+4.Conclusiones:
+	
+	Como pudimos comprobar previamente, nos damos cuenta que el algoritmo de ordenación por shell
+	es mucho mas rápido que el de seleción para numeros muy grandes, mientras que el algortimo de 
+	seleción es mas eficaz cuando el vector esta algo ordenado ya que su complejidaz en ese caso no 
+	seria cuadrática, la complejidad del shell en casos noramles es de n*log(n)^2, mejor que el de 
+	seleccion.
+	
+	A su vez tambien nos damos cuenta que los algoritmos funcion mejor o de una manera mas rápida 
+	si el vector no es aleatorio
+	
+	Cuando el timpo de ejecución en menor a 500 µs, el tiempo no es lo suficientemente significativo 
+	por lo cual el algoritmo se ejecuta 1000 veces y hacemos el promedio de esas ejecuciones dándonos 
+	asi un resultado más significatico y que ya podemos tener en cuenta, esas ejecuciones expcionales 
+	estaran marcadas previamente con un asterisco
+
+
+

@@ -1,0 +1,89 @@
+TÍTULO: Práctica 4 de Algoritmos "Algoritmo de Prim"
+AUTOR 1: Luis Brañas Marco        	LOGIN 1: luis.branas
+AUTOR 2: Daniel Rodriguez Sanchez	LOGIN 2: daniel.rodriguez.sanchez1
+AUTOR 3: Jacobo Iglesia Cibiriain   LOGIN 3: jacobo.iglesias1
+
+GRUPO: 3.1
+FECHA: 4/12/2021
+
+---------------------------------------------------------------------------------------------------
+
+1. Características del máquina: /CAMBIAR
+
+	OS: Ubuntu 20.04.1 LTS
+	Kernel: 5.11.0-34-generic
+	CPU: Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz
+	Memoria principal: 12 GB
+	Compilador: gcc version 9.3.0
+
+---------------------------------------------------------------------------------------------------
+
+2. Introducción:
+
+	En esta práctica evaluaremos la complemjidad del algoritmo de Prim,
+    que recorre un grafo y calcula tanto el camino mínimo como el peso mínimo
+    necesario para recorrer todos los nodos de un grafo.
+    
+    Se determinarán los tiempos de ejecución del algoritmo de Prim para diferentes
+    grafos no dirigidos. Estos, serán generados aleatoriamente (representandolos con 
+    su respectiva matriz de ayacencia) además de con tamaños diferentes (desde 8 nodos
+    hasta 2048) siguiendo una progresion geometrica de 2.
+    
+    Se usaran las cotas subestimada y sobreestimada para consolidar la ajustada.
+    
+    Cabe destacar que las mediciónes de los tiempos se van a realizar en microsegundos (µs)
+
+
+---------------------------------------------------------------------------------------------------
+
+3. Datos
+
+Algoritmo de Prim:
+
+           n                              t(n)             t(n)/n^1.7              t(n)/n^2               t(n)/n^2.3
+
+(*)	       2		        			 0.0660		 	0.021771880528		 	0.016500000000		 	0.012504661674
+(*)	       4		        			 0.2270		 	0.024701872234		 	0.014187500000		 	0.008148578956
+(*)	       8		        			 1.1340		 	0.040706997955		 	0.017718750000		 	0.007712533897
+(*)	      16		        			 3.0510		 	0.036128525347		 	0.011917968750		 	0.003931463511
+(*)	      32		        			15.9300		 	0.062226562500		 	0.015556640625		 	0.003889160156
+(*)	      64		        			46.3660		 	0.059746390421		 	0.011319824219		 	0.002144705637
+(*)	     128		       		       163.2300		 	0.069384750218		 	0.009962768555		 	0.001430526981
+	     256		       		       651.0000		 	0.091284500623		 	0.009933471680		 	0.001080948671
+	     512		      			  2798.0000		 	0.129424284457		 	0.010673522949		 	0.000880237373
+
+
+        
+Cota subestimada: n^1.7
+Cota ajustada: n^2 
+Cota sobreestimada: n^2.3
+
+(*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+    es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+Observaciones:
+	La cota subestima tiende a infinito según vamos aumentado n
+	La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.010
+	La cota sobreestimada tiende a 0 según vamos aumentando n
+	La complejidad computacional es de n^2
+
+
+---------------------------------------------------------------------------------------------------
+
+4.Conclusiones:
+	
+	Como pudimos comprobar el algoritmo de prim tiene una complejidad computacional de n^2, la elcción
+	del tamaño de las matrices no es aleatorio ya que escogimos esas ya que a partir de de 512 los datos
+	se desestabilizan si no se cuenta con una maquina potente, aun asi nos queda que la complejidad 
+	teoriaca y la estudiada es la misma. 
+
+	A su vez tambien nos damos cuenta que el algoritmo podria ser algo mas rapido si en vez de implementarse
+	con colas se hubiera implementado con monticulos ya que la gestion de los resultado seria menos compleja
+	
+	Cuando el timpo de ejecución en menor a 500 µs, el tiempo no es lo suficientemente significativo 
+	por lo cual el algoritmo se ejecuta 1000 veces y hacemos el promedio de esas ejecuciones dándonos 
+	asi un resultado más significatico y que ya podemos tener en cuenta, esas ejecuciones expcionales 
+	estaran marcadas previamente con un asterisco
+
+
+

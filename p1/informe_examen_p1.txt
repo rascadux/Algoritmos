@@ -1,0 +1,84 @@
+TÍTULO: EXAMEN ALGORITMOS PRACTICA
+AUTOR : Daniel Rodriguez Sanchez   LOGIN : daniel.rodriguez.sanchez1
+
+GRUPO: 3.1
+FECHA: 12/01/2022
+
+---------------------------------------------------------------------------------------------------
+
+1. Características de la máquina:
+
+	OS: Ubuntu 20.04.1 LTS
+	Kernel: 5.11.0-34-generic
+	CPU: Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz
+	Memoria principal: 12 GB
+	Compilador: gcc version 9.3.0
+
+---------------------------------------------------------------------------------------------------
+
+2. Introducción:
+
+	La practica consiste en implementar un algoritmo que dados una serie de numeros enteros 
+	en forma de vector, haye la subsecuencia cuya suma sea la maxima entre todas las posibles.
+	
+	En el test1 los vectores, de tamaño 5, ya vienen predefinidos en el enunciado. Tras aplicar los 
+	algoritmos, sus resultados nos sirven para comprobar que el algoritmo funcionan bien.
+	 
+	
+	En el test2 los vectores, de tamaño 9, se generan de forma aleatoria mediante una función ya
+	dada, a su vez tambien nos sirve para comprobar que el algoritmo funcionan correctamente.
+	
+	Por ultimo, en el test3 usaremos vectores aleatorios de distintos tamaños (500, 1000, 2000, 4000, 8000,
+	16000, 320000) y calcularemos sus respectivos tiempos de ejecución para determinar la complejidad 
+	computacional de cada uno de algoritmos.
+	
+	Cabe destacar que las mediciónes de los tiempos se van a realizar en microsegundos (µs)
+
+---------------------------------------------------------------------------------------------------
+
+3. Datos
+	
+
+    test3: 
+
+    sumaSubMax3
+
+               n              t(n)         t(n)/n^0.8       t(n)/n^1        t(n)/n^1.2
+
+    (*)       500             1.585         0.395093         0.114000         0.032894
+    (*)      1000             3.240         0.402088         0.108020         0.025370
+    (*)      2000             6.983         0.480170         0.109000         0.022961
+    (*)      4000            13.497         0.617234         0.117500         0.021368
+             8000           931.000         0.702227         0.116375         0.019286
+            16000          2053.000         0.889391         0.118312         0.018512
+            32000          3705.000         0.921867         0.115781         0.014541
+            
+	            
+    Cota subestimada: n^0.8
+    Cota ajustada: n^1
+    Cota sobreestimada: n^1.2
+
+    (*) tiempo promedio (en µs) de 1.000 ejecuciones del algoritmo ya que cuando el tiempo 
+        es menor de 500 µs, ek tiempo no es significativo y debemos ejecutarlo varias veces.
+
+    Observaciones:
+	    La cota subestima tiende a infinito según vamos aumentado n 
+	    La cota ajustada tiende a estabilizarse alrededor de una constante igual a 0.116
+	    La cota sobreestimada tiende a 0 según vamos aumentando n
+	    La complejidad computacional es de n
+
+---------------------------------------------------------------------------------------------------
+
+4.Conclusiones:
+
+	Vemos que el algoritmo proporcionado tiene una complejidad computacional de O(n).
+	Si comparamos este algoritmo con los otros 2 de la practica 1, vemos que este es mucho
+	mas veloz que el primero, sin embargo, se queda bastante por detras del segundo algoritmo
+    que consigue tiempos de ejecucion mas veloces.
+	
+	Cuando el tiempo de ejecución en menor a 500 µs, el tiempo no es lo suficientemente significativo 
+	por lo cual el algoritmo se ejecuta 1000 veces y hacemos el promedio de esas ejecuciones dándonos 
+	asi un resultado más significatico y que ya podemos tener en cuenta, esas ejecuciones expcionales 
+	estaran marcadas previamente con un asterisco
+
+
